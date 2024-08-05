@@ -18,6 +18,6 @@ async def get_webhooks() -> List[dict]:
     return list(webhooks)
 
 
-@app.get("/health")
+@app.head("/health")
 async def health_check():
-    return {"status": "ok"}
+    return
