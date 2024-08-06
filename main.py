@@ -30,7 +30,7 @@ async def get_webhooks() -> List[dict]:
     return list(webhooks)
 
 
-@app.head(
+@app.get(
     "/health",
     summary="Health check",
     description="Health check endpoint",
