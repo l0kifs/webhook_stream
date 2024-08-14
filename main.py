@@ -51,7 +51,7 @@ def format_request_curl(
     if headers:
         curl_command = curl_command + ' -H ' + ' -H '.join([f'\'{k}: {v}\'' for k, v in headers.items()])
     if data:
-        json_data = json.dumps(data)
+        json_data = json.dumps(data, separators=(',', ':'))
         curl_command = curl_command + f" -d \'{json_data}\'"
     curl_command = curl_command + f" {url}"
     if params:
@@ -111,8 +111,9 @@ async def get_webhook(
     return {"message": "Webhook not found"}
 
 
-@app.get(
+@app.api_route(
     "/health",
+    methods=["GET"],
     summary="Health check",
     description="Health check endpoint",
 )
