@@ -113,7 +113,7 @@ async def get_webhook(
 
 @app.api_route(
     "/health",
-    methods=["GET"],
+    methods=["GET", "HEAD"],
     summary="Health check",
     description="Health check endpoint",
 )
